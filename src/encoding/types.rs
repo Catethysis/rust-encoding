@@ -370,6 +370,10 @@ pub enum DecoderTrap {
     DecodeReplace,
     /// Silently ignores an error, effectively replacing it with an empty sequence.
     DecodeIgnore,
+    /// Calls given function to handle decoder errors.
+    /// The function is given the current decoder, input and output writer,
+    /// and should return true only when it is fine to keep going.
+    #[unstable] DecoderTrapFunc,
 }
 
 impl DecoderTrap {
@@ -400,6 +404,10 @@ pub enum EncoderTrap {
     /// The encoder trap fails when NCRs cannot be represented in given encoding.
     /// Corresponds to WHATWG "<form>" error algorithms.
     EncodeNcrEscape,
+    /// Calls given function to handle encoder errors.
+    /// The function is given the current encoder, input and output writer,
+    /// and should return true only when it is fine to keep going.
+    #[unstable] EncoderTrapFunc,
 }
 
 impl EncoderTrap {

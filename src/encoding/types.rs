@@ -373,7 +373,7 @@ pub enum DecoderTrap {
     /// Calls given function to handle decoder errors.
     /// The function is given the current decoder, input and output writer,
     /// and should return true only when it is fine to keep going.
-    #[unstable] DecoderTrap(DecoderTrapFunc),
+    //#[unstable] DecoderTrap(DecoderTrapFunc),
 }
 
 impl DecoderTrap {
@@ -407,7 +407,7 @@ pub enum EncoderTrap {
     /// Calls given function to handle encoder errors.
     /// The function is given the current encoder, input and output writer,
     /// and should return true only when it is fine to keep going.
-    #[unstable] EncoderTrap(EncoderTrapFunc),
+    //#[unstable] EncoderTrap(EncoderTrapFunc),
 }
 
 impl EncoderTrap {
